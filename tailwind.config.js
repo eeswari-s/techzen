@@ -58,6 +58,15 @@ export default {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        // Shine that sweeps once, then rests (used on the footer logo)
+        sweep: {
+          '0%': { transform: 'translateX(-150%) skewX(-20deg)' },
+          '35%, 100%': { transform: 'translateX(350%) skewX(-20deg)' },
+        },
+        glow: {
+          '0%, 100%': { opacity: '0.35', transform: 'scale(0.95)' },
+          '50%': { opacity: '0.7', transform: 'scale(1.05)' },
+        },
         loadbar: {
           '0%': { transform: 'scaleX(0)' },
           '100%': { transform: 'scaleX(1)' },
@@ -71,6 +80,8 @@ export default {
         'stripe-move': 'stripe-move 14s ease-in-out infinite',
         marquee: 'marquee 30s linear infinite',
         loadbar: 'loadbar 1s ease-out forwards',
+        sweep: 'sweep 4s ease-in-out infinite',
+        glow: 'glow 4s ease-in-out infinite',
       },
     },
   },

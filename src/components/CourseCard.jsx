@@ -60,29 +60,26 @@ export default function CourseCard({ course, index }) {
             className="absolute inset-x-0 top-0 z-20 h-1 origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100"
           />
 
-          <div className="relative">
-            <SmartImage
-              src={image}
-              alt={`${title} course in Chennai – TECHZENZA`}
-              icon={Icon}
-              width="640"
-              height="400"
-              className="aspect-[16/10]"
-              imgClassName="transition-transform duration-700 ease-out group-hover:scale-110"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/20 to-transparent"
-            />
-            <span className="absolute right-3 top-3 rounded-full bg-navy-900/80 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-gold backdrop-blur">
-              Course {number}
-            </span>
-            <span className="absolute -bottom-6 left-5 flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-gold text-navy-900 shadow-gold">
-              <Icon className="h-5 w-5" aria-hidden="true" />
-            </span>
-          </div>
+          {/* Full poster, never cropped: box matches the 16:9 poster ratio and uses object-contain */}
+          <SmartImage
+            src={image}
+            alt={`${title} course in Chennai – TECHZENZA`}
+            icon={Icon}
+            width="1200"
+            height="674"
+            className="aspect-[16/9] bg-navy-900"
+            imgClassName="!object-contain transition duration-500 group-hover:brightness-110"
+          />
 
-          <div className="flex flex-1 flex-col p-5 pt-9">
+          <div className="flex flex-1 flex-col p-5">
+            <div className="mb-4 flex items-center justify-between">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gold text-navy-900 shadow-gold">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="rounded-full bg-navy-900 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-gold">
+                Course {number}
+              </span>
+            </div>
             <h3 id={headingId} className="text-lg font-bold leading-snug">
               {title}
             </h3>

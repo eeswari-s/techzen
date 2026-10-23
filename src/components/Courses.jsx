@@ -59,7 +59,7 @@ export default function Courses() {
           </LayoutGroup>
         </Reveal>
 
-        <motion.ul layout className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <motion.ul layout className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout" initial={false}>
             {visible.map((course) => (
               <motion.li
