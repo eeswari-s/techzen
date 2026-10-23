@@ -56,6 +56,14 @@ All text and links are kept in `src/data/`:
   ```
   To add a new filter category, add it to `COURSE_CATEGORIES`. The footer course list and the cards update automatically. Also update the course list in the JSON-LD block in `index.html` so search engines see the same courses.
 - **`testimonials.js`**: learner quotes (quote, name, course).
+- **`faq.js`**: FAQ questions and answers. They appear in the FAQ section, and the build also adds them to the page as Google FAQ structured data (`FAQPage`), so you only edit them here.
+
+## SEO files (generated automatically)
+
+- **`sitemap.xml`** is created on every `npm run build` (see `seoPlugin` in `vite.config.js`). It contains the home page with today's date as `lastmod`, plus an image entry for the logo, the share image, `about.jpg` and every course image that exists in `public/images/`. Add a course image and rebuild, and it is included automatically. There is no `public/sitemap.xml` to edit.
+- **`robots.txt`** (in `public/`) allows all crawlers and points to the sitemap.
+- After deploying, submit `https://techzenzatechnology.netlify.app/sitemap.xml` in Google Search Console → Sitemaps.
+- You can check the structured data at https://search.google.com/test/rich-results.
 
 ## Google Maps
 
@@ -75,7 +83,7 @@ The final embed is already set (13.019417, 80.205957). To change it, open `src/d
 For Bing, uncomment the `msvalidate.01` line below it and paste the Bing code.
 
 ### If the domain changes (e.g. techzenza.com)
-Update the URL in: `src/data/site.js` (`url`), `index.html` (canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD), `public/robots.txt` and `public/sitemap.xml`.
+Update the URL in: `src/data/site.js` (`url`, which also updates the sitemap), `index.html` (canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD) and `public/robots.txt`.
 
 ## Project structure
 

@@ -39,4 +39,4 @@ export const NAV_LINKS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export const SECTION_IDS = ['home', 'about', 'courses', 'process', 'placement', 'testimonials', 'contact'];
+export const SECTION_IDS = ['home', 'about', 'courses', 'process', 'placement', 'testimonials', 'faq', 'contact'];

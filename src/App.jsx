@@ -15,6 +15,7 @@ const Courses = lazy(() => import('./components/Courses'));
 const Process = lazy(() => import('./components/Process'));
 const Placement = lazy(() => import('./components/Placement'));
 const Testimonials = lazy(() => import('./components/Testimonials'));
+const FAQ = lazy(() => import('./components/FAQ'));
 const FinalCTA = lazy(() => import('./components/FinalCTA'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
@@ -53,6 +54,7 @@ export default function App() {
           <Process />
           <Placement />
           <Testimonials />
+          <FAQ />
           <FinalCTA />
           <Contact />
         </Suspense>

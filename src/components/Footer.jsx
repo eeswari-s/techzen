@@ -52,6 +52,11 @@ export default function Footer() {
               </li>
             ))}
             <li>
+              <a href="#faq" className={linkCls}>
+                FAQ
+              </a>
+            </li>
+            <li>
               <a href={SITE.enquiryForm} target="_blank" rel="noopener noreferrer" className={linkCls}>
                 Enquire Now
               </a>
