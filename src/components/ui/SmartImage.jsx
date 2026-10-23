@@ -7,11 +7,11 @@ import { useState } from 'react';
 export default function SmartImage({ src, alt, icon: Icon, className = '', imgClassName = '', width, height, eager = false }) {
   const [failed, setFailed] = useState(false);
 
+  // The placeholder shows no real picture, so it is decorative (the alt text describes the photo).
   if (failed || !src) {
     return (
       <div
-        role="img"
-        aria-label={alt}
+        aria-hidden="true"
         className={`flex items-center justify-center bg-hero-gradient ${className}`}
       >
         {Icon && <Icon className="h-14 w-14 text-gold/80" aria-hidden="true" />}

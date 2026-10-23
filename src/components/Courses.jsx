@@ -22,7 +22,7 @@ export default function Courses() {
           id="courses-title"
           kicker="Our Courses"
           title="Learn the skills companies look for"
-          subtitle="Career-focused learning paths with the technologies and tools covered in each course."
+          subtitle="Career-focused IT courses in Chennai, with the technologies and tools covered in each learning path."
         />
 
         <Reveal className="mb-10 flex justify-center">

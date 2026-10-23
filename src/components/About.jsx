@@ -26,7 +26,7 @@ export default function About() {
             />
             <SmartImage
               src="/images/about.jpg"
-              alt="Learners in a practical IT training session at TECHZENZA, Chennai"
+              alt="Learning at TECHZENZA – Technology & Skill Development Academy, Chennai"
               icon={TbSchool}
               width="640"
               height="520"

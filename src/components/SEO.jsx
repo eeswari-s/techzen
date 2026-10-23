@@ -1,21 +1,18 @@
 import { Helmet } from 'react-helmet-async';
-import { SITE } from '../data/site';
+import { getSeoTags } from '../data/seoTags';
 
-export default function SEO({ title = SITE.seo.title, description = SITE.seo.description }) {
-  const url = `${SITE.url}/`;
-  const image = `${SITE.url}${SITE.seo.image}`;
+/**
+ * Page-level SEO tags. The same tags are pre-rendered into index.html (marked data-rh),
+ * so Helmet adopts them instead of adding duplicates. Pass props to override per page.
+ */
+export default function SEO(props) {
+  const { title, tags } = getSeoTags(props);
   return (
     <Helmet>
       <title>{title}</title>
-      <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
-      <meta property="og:image" content={image} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      {tags.map(({ tag: Tag, attrs }) => (
+        <Tag key={attrs.name || attrs.property || attrs.rel} {...attrs} />
+      ))}
     </Helmet>
   );
 }

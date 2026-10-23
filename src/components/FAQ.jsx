@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FiPlus } from 'react-icons/fi';
 import { FAQS } from '../data/faq';
 import { SITE } from '../data/site';
@@ -51,21 +51,19 @@ export default function FAQ() {
                       </span>
                     </button>
                   </h3>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={panelId}
-                        role="region"
-                        aria-labelledby={btnId}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      >
-                        <p className="px-5 pb-5 md:px-6 md:pb-6">{item.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Answers stay in the DOM when collapsed so search engines can read them. */}
+                  <motion.div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={btnId}
+                    aria-hidden={!isOpen}
+                    className="overflow-hidden"
+                    initial={false}
+                    animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <p className="px-5 pb-5 md:px-6 md:pb-6">{item.a}</p>
+                  </motion.div>
                 </div>
               </StaggerItem>
             );

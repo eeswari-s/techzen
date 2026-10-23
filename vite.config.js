@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 import { SITE } from './src/data/site.js';
 import { COURSES } from './src/data/courses.js';
 import { FAQS } from './src/data/faq.js';
+import { getSeoTags } from './src/data/seoTags.js';
 
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const xmlEscape = (s) =>
@@ -54,7 +55,12 @@ function seoPlugin() {
   return {
     name: 'techzenza-seo',
     transformIndexHtml() {
+      // Title, description, canonical, Open Graph and Twitter tags from SITE.seo. `data-rh` lets
+      // react-helmet-async (SEO.jsx) adopt these tags at runtime instead of adding duplicates.
+      const { title, tags } = getSeoTags({ path: '/' });
       return [
+        { tag: 'title', children: title, injectTo: 'head' },
+        ...tags.map(({ tag, attrs }) => ({ tag, attrs: { ...attrs, 'data-rh': 'true' }, injectTo: 'head' })),
         {
           tag: 'script',
           attrs: { type: 'application/ld+json' },

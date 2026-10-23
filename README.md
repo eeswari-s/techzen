@@ -56,7 +56,8 @@ All text and links are kept in `src/data/`:
   ```
   To add a new filter category, add it to `COURSE_CATEGORIES`. The footer course list and the cards update automatically. Also update the course list in the JSON-LD block in `index.html` so search engines see the same courses.
 - **`testimonials.js`**: learner quotes (quote, name, course).
-- **`faq.js`**: FAQ questions and answers. They appear in the FAQ section, and the build also adds them to the page as Google FAQ structured data (`FAQPage`), so you only edit them here.
+- **`faq.js`**: FAQ questions and answers. They appear in the FAQ section, and the build also adds them to the page as Google FAQ structured data (`FAQPage`), so you only edit them here. (Google currently limits FAQ rich results to well-known government/health sites, so don't expect FAQ snippets in search.)
+- **SEO title, description, canonical, Open Graph and Twitter tags**: edit `SITE.seo` in `src/data/site.js`. The build writes them into `index.html`, and `SEO.jsx` reuses the same values, so each tag appears exactly once.
 
 ## SEO files (generated automatically)
 

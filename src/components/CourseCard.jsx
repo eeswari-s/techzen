@@ -63,7 +63,7 @@ export default function CourseCard({ course, index }) {
           {/* Full poster, never cropped: box matches the 16:9 poster ratio and uses object-contain */}
           <SmartImage
             src={image}
-            alt={`${title} course in Chennai – TECHZENZA`}
+            alt={`${title} course poster by TECHZENZA`}
             icon={Icon}
             width="1200"
             height="674"

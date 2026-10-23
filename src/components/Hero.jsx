@@ -61,6 +61,12 @@ export default function Hero({ ready }) {
             id="hero-title"
             className="mt-6 text-[clamp(2.4rem,5vw,4rem)] font-extrabold leading-[1.08] tracking-tight !text-white"
           >
+            <motion.span
+              variants={item}
+              className="mb-3 block text-base font-bold tracking-normal text-sky-soft md:text-lg"
+            >
+              IT Training &amp; Placement Support in Chennai
+            </motion.span>
             <motion.span variants={item} className="block">
               Build skills.
             </motion.span>

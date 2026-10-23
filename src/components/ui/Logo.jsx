@@ -21,7 +21,7 @@ export default function Logo({
       ) : (
         <img
           src="/images/logo.png"
-          alt={`${SITE.name} logo`}
+          alt={`${SITE.fullName} logo`}
           width="640"
           height="387"
           className={`object-contain ${className}`}

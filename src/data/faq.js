@@ -1,7 +1,8 @@
 /**
  * Frequently asked questions — shown in the FAQ section AND injected into index.html
- * as FAQPage structured data at build time (see vite.config.js), so Google can show
- * these answers directly in search results. Keep answers factual: no fees or durations
+ * as FAQPage structured data at build time (see vite.config.js). Note: Google currently shows
+ * FAQ rich results only for well-known government/health sites, so this markup describes the
+ * content but is not expected to produce a rich result. Keep answers factual: no fees or durations
  * unless they are officially confirmed.
  */
 export const FAQS = [
