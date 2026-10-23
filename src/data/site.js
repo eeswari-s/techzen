@@ -3,7 +3,10 @@ export const SITE = {
   fullName: 'TECHZENZA – Technology & Skill Development Academy',
   tagline: 'LEARN. PRACTICE. GROW. GET PLACED.',
   slogan: 'Skills Today, A Brighter Tomorrow.',
-  url: 'https://techzenzatechnology.netlify.app',
+  // Canonical production domain (no trailing slash). Used for canonical/OG URLs and sitemap.xml.
+  url: 'https://techzenza.in',
+  // Sitemap <lastmod> (YYYY-MM-DD). Update only when the page content actually changes.
+  lastModified: '2026-10-23',
   phone: '+918220476984',
   phoneDisplay: '+91 82204 76984',
   email: 'techzenza@gmail.com',

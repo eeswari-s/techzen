@@ -11,10 +11,10 @@ npm run build     # production build into dist/
 npm run preview   # preview the production build
 ```
 
-### Deploy to Netlify
-- Build command: `npm run build`
-- Publish directory: `dist`
-- `public/_redirects` is included already, so SPA routing works.
+### Deploy (Vercel)
+- Production domain: **https://techzenza.in**. In Vercel → Project → Settings → Domains, `techzenza.in` should be the primary domain and `www.techzenza.in` should redirect to it.
+- Framework preset: Vite · Build command: `npm run build` · Output directory: `dist`. No `vercel.json` is needed.
+- `public/_redirects` is only for Netlify; Vercel ignores it.
 
 ## Images: put these files in `public/`
 
@@ -62,7 +62,8 @@ All text and links are kept in `src/data/`:
 
 - **`sitemap.xml`** is created on every `npm run build` (see `seoPlugin` in `vite.config.js`). It contains the home page with today's date as `lastmod`, plus an image entry for the logo, the share image, `about.jpg` and every course image that exists in `public/images/`. Add a course image and rebuild, and it is included automatically. There is no `public/sitemap.xml` to edit.
 - **`robots.txt`** (in `public/`) allows all crawlers and points to the sitemap.
-- After deploying, submit `https://techzenzatechnology.netlify.app/sitemap.xml` in Google Search Console → Sitemaps.
+- `<lastmod>` comes from `SITE.lastModified` in `src/data/site.js`. Update that date only when the page content really changes.
+- After deploying, submit `https://techzenza.in/sitemap.xml` in Google Search Console → Sitemaps.
 - You can check the structured data at https://search.google.com/test/rich-results.
 
 ## Google Maps
@@ -71,18 +72,18 @@ The final embed is already set (13.019417, 80.205957). To change it, open `src/d
 
 ## Google Search Console verification
 
-1. In Search Console, add the property `https://techzenzatechnology.netlify.app` and choose the **HTML tag** method.
+1. The `techzenza.in` property is already verified. Use these steps only if you add another property with the **HTML tag** method.
 2. Open `index.html` and find:
    ```html
    <!-- Google Search Console: paste your verification code below -->
    <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_VERIFICATION_CODE" />
    ```
 3. Replace `REPLACE_WITH_GOOGLE_VERIFICATION_CODE` with the code (only the `content` value), rebuild and deploy, then click **Verify**.
-4. Submit `https://techzenzatechnology.netlify.app/sitemap.xml` under *Sitemaps*.
+4. Submit `https://techzenza.in/sitemap.xml` under *Sitemaps*.
 
 For Bing, uncomment the `msvalidate.01` line below it and paste the Bing code.
 
-### If the domain changes (e.g. techzenza.com)
+### If the domain changes again
 Update the URL in: `src/data/site.js` (`url`, which also updates the sitemap), `index.html` (canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD) and `public/robots.txt`.
 
 ## Project structure

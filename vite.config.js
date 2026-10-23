@@ -10,9 +10,14 @@ const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const xmlEscape = (s) =>
   String(s).replace(/[<>&'"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[c]);
 
-/** sitemap.xml with an image entry for every brand/course image that exists in public/. */
+/**
+ * sitemap.xml with an image entry for every brand/course image that exists in public/.
+ * Only "/" is listed: this is a single-page site, and #section anchors are not separate URLs.
+ */
 function buildSitemap() {
-  const today = new Date().toISOString().slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(SITE.lastModified)) {
+    throw new Error(`SITE.lastModified must be YYYY-MM-DD, got "${SITE.lastModified}"`);
+  }
   const images = ['/images/logo.png', '/images/og-image.jpg', '/images/about.jpg', ...COURSES.map((c) => c.image)].filter(
     (src) => fs.existsSync(path.join(PUBLIC_DIR, src))
   );
@@ -25,7 +30,7 @@ function buildSitemap() {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>${xmlEscape(SITE.url)}/</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${SITE.lastModified}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
 ${imageTags}
