@@ -26,13 +26,14 @@ export default function About() {
             />
             <SmartImage
               src="/images/about.jpg"
-              alt="Learning at TECHZENZA – Technology & Skill Development Academy, Chennai"
+              alt="Learn, practice, build skills and grow your career with TECHZENZA – Technology & Skill Development Academy, Chennai"
               icon={TbSchool}
-              width="640"
-              height="520"
-              className="relative aspect-[16/13] rounded-card shadow-card-hover"
+              width="1600"
+              height="900"
+              className="relative aspect-[16/9] rounded-card shadow-card-hover"
             />
-            <div className="absolute -bottom-6 right-4 max-w-[240px] rounded-2xl bg-navy-900 p-5 text-white shadow-card-hover md:-right-6">
+            {/* Sits below the image (overlapping only its edge) so the artwork isn't covered */}
+            <div className="relative z-10 -mt-6 ml-auto mr-4 w-fit max-w-[260px] rounded-2xl bg-navy-900 px-5 py-4 text-white shadow-card-hover md:-mr-6">
               <p className="text-xs font-bold uppercase tracking-[0.08em] text-gold">Our approach</p>
               <p className="mt-1 text-sm font-semibold leading-snug">Learn → Practice → Grow → Get Placed</p>
             </div>
